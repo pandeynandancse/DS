@@ -25,7 +25,7 @@
          right-of-root = 5 unique elems
          then root can be arranged in 5*5 different forms
     
-    
+    >>>> Cn = nSIGMAi=0(Ci * Cn-i-1) >>> here DP can be uses because future value(Cn) is dependent on Previous Value(Ci and Cn-i-1)
     
     
  --------------------------------------------------------------------------------------------------------------------------------------------------------------------
