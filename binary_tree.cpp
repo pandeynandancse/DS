@@ -81,3 +81,85 @@ unsigned long int catalan(unsigned int n)
 }
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  
+  6) Factorial of Number Using Recursion :  
+
+                  long int multiplyNumbers(int n) {
+                      if (n>=1)
+                          return n*multiplyNumbers(n-1);
+                      else
+                          return 1;
+                  }
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7)   Factorial of  Number Using DP:
+
+                  int fact(int n) {
+                     if (n >= 0) {
+                        result[0] = 1;
+                        for (int i = 1; i <= n; ++i) {
+                           result[i] = i * result[i - 1];
+                        }
+                        return result[n];
+                     }
+                  }
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  
+8) Construct Binary Tree from Preorder and Inorder Traversal : 
+
+
+
+
+
+TreeNode* build(vector<int>& preorder, vector<int>& inorder, int& pstart, int pend, int istart, int iend)
+    {
+        //Is inorder index invalid? have we reach num element in preorder?
+        if(istart > iend || iend < istart || pstart == pend)
+            return NULL;
+        
+        
+        //Construct a new node from preorder
+        TreeNode* node = new TreeNode(preorder[pstart]);      
+
+        
+        //Find the element in inorder array.
+        int in = istart;
+        while( in < iend && inorder[in] != preorder[pstart])
+            in++;
+        
+        //Move to the next element in preorder.
+        pstart++;
+        
+        //Left subtree is from istart till in-1
+        node->left = build( preorder, inorder, pstart, pend, istart, in-1);
+        
+        //right subtree is from in+1 till iend
+        node->right = build(preorder, inorder, pstart, pend, in+1, iend);        
+        return node;
+    }
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  
+  9) Construct Binary Tree from Inorder and Postorder Traversal
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  
+  10) Binary Tree Level Order Traversal
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  
+  11) Construct Binary Search Tree from Preorder Traversal
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  12) Longest ZigZag Path in a Binary Tree
+  
