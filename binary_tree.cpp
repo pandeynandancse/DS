@@ -163,3 +163,30 @@ TreeNode* build(vector<int>& preorder, vector<int>& inorder, int& pstart, int pe
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
   12) Longest ZigZag Path in a Binary Tree
   
+-----------------------------------------
+
+13) Unique Binary Search Trees II
+
+-----------------------------
+
+14) CRUD in BST
+
+------------
+
+15) CRUD in Binary Tree
+
+
+-------
+
+16) Inorder Successor in BST
+
+
+-------------
+
+17) Smallest String Starting From Leaf
+
+18) Check If a String Is a Valid Sequence from Root to Leaves Path in a Binary Tree
+
+
+
+19) Construct Binary Tree from String
