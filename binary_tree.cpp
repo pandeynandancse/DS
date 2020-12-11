@@ -190,3 +190,39 @@ TreeNode* build(vector<int>& preorder, vector<int>& inorder, int& pstart, int pe
 
 
 19) Construct Binary Tree from String
+
+20) Max height of binary tree
+
+    if(root){
+            return 1+ max(maxDepth(root->left), maxDepth(root->right));
+        }
+        else{
+            return 0;
+        }
+    
+    
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  21) Min height of Binary Tree
+  
+  
+      int minDepth(TreeNode root) {
+          if(root==NULL)
+          return 0;
+          if(root->left==NULL)
+          return 1+minDepth(root->right);
+          if(root->right==NULL)
+          return 1+minDepth(root->left);
+          return 1+min(minDepth(root->left),minDepth(root->right));
+
+      }
+      
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  
+  
+  
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+  
