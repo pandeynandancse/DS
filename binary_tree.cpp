@@ -120,32 +120,47 @@ unsigned long int catalan(unsigned int n)
 
 
 
-TreeNode* build(vector<int>& preorder, vector<int>& inorder, int& pstart, int pend, int istart, int iend)
-    {
-        //Is inorder index invalid? have we reach num element in preorder?
-        if(istart > iend || iend < istart || pstart == pend)
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    
+    
+   TreeNode* build(vector<int>& preorder, vector<int>& inorder, int& pstart,int  pend , int istart,int iend){
+        if(pstart==pend || istart>iend){
             return NULL;
+        }  
+        TreeNode* node = new TreeNode(preorder[pstart]);
         
+        int val = preorder[pstart];
+        int in =0;
         
-        //Construct a new node from preorder
-        TreeNode* node = new TreeNode(preorder[pstart]);      
-
-        
-        //Find the element in inorder array.
-        int in = istart;
-        while( in < iend && inorder[in] != preorder[pstart])
+        while(in<iend && inorder[in]!=val){
             in++;
+        }
+        pstart = pstart + 1;
         
-        //Move to the next element in preorder.
-        pstart++;
-        
-        //Left subtree is from istart till in-1
-        node->left = build( preorder, inorder, pstart, pend, istart, in-1);
-        
-        //right subtree is from in+1 till iend
-        node->right = build(preorder, inorder, pstart, pend, in+1, iend);        
+        node->left = build(preorder, inorder, pstart, pend, istart, in-1);
+        node->right= build(preorder, inorder, pstart, pend, in+1, iend);
         return node;
+            
     }
+    
+    
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        int pstart =0;
+        return build(preorder, inorder, pstart, preorder.size() , 0 , inorder.size());
+    }
+};
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
