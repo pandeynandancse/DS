@@ -171,6 +171,36 @@ public:
   
   
   10) Binary Tree Level Order Traversal
+  
+  
+  vector<vector<int>> levelOrder(TreeNode* root) {
+         vector<vector<int>> ans;
+        
+        if(!root) return ans;
+        
+        queue<TreeNode*> q;
+        q.push(root);
+        
+        while(!q.empty()){
+            vector<int> t;
+            
+            int s= q.size();
+            while(s-->0){
+                TreeNode* r = q.front();
+                q.pop();
+                t.push_back(r->val);
+                if (r->left != nullptr) 
+                    q.push(r->left);
+                
+                if (r->right != nullptr)
+                    q.push(r->right);
+            }
+            ans.push_back(t);
+            
+        }
+        return ans;
+    }
+    
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
   
   
