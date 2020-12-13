@@ -209,6 +209,33 @@ public:
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
   12) Longest ZigZag Path in a Binary Tree
   
+  
+  
+  
+  
+  
+  pair<int, int> traverse(TreeNode* node, int &ans) {
+        if (!node) return {-1, -1};
+        
+        auto left = traverse(node->left, ans);
+        auto right = traverse(node->right, ans);
+        
+        pair<int, int> ret = {left.second + 1, right.first + 1};
+        
+        ans = max({ans, ret.first, ret.second});
+        return ret;
+    }
+    
+    int longestZigZag(TreeNode* root) {
+        if (!root) return 0;
+        
+        int ans = 0;
+        traverse(root, ans);
+        
+        return ans;
+    }
+
+
 -----------------------------------------
 
 13) Unique Binary Search Trees II
