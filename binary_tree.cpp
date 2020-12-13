@@ -207,7 +207,7 @@ public:
   
   11) Construct Binary Search Tree from Preorder Traversal
   -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  12) Longest ZigZag Path in a Binary Tree
+  12) Longest ZigZag Path in a Binary Tree  >>> Also print that  nodes (pending)
   
   
   
@@ -299,3 +299,4 @@ public:
   
 --------------------------------------------------------------------------------------------------------------------------------------------------------
   
+23) Longest path in tree > Diameter of tree
