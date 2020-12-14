@@ -306,6 +306,24 @@ public:
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 24) Path In Zigzag Labelled Binary Tree
+a) https://leetcode.com/problems/path-in-zigzag-labelled-binary-tree/discuss/357749/java-full-explanation-100-beat-in-both
+b) https://leetcode.com/problems/path-in-zigzag-labelled-binary-tree/discuss/323848/Golang-O(log-n)-with-detail-explanation
+
+
+
+
+
+vector<int> pathInZigZagTree(int label) {
+    int level = log(label) / log(2) + 1;  
+    vector<int> path(level);
+    while (label) {
+        path[level - 1] = label;
+        label = pow(2, level) - 1 - label + pow(2, level - 1);
+        label >>= 1;
+        level--;
+    }
+    return path;
+ }
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
