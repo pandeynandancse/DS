@@ -388,3 +388,42 @@ vector<int> pathInZigZagTree(int label) {
 -----------------------------
 
 27) All paths from tree to leaf
+
+
+
+
+int sumNumbers(TreeNode* root, int number=0) {
+        if (root == nullptr) return 0;
+        number = number * 10 + root->val;
+        if (root->left == nullptr && root->right == nullptr){
+            cout << number;
+            return 0;
+        }
+        else{
+            sumNumbers(root->left, number);
+            sumNumbers(root->right, number);
+            return 0 ;
+        }  
+    }
+    
+
+
+------------------------------------------------------
+
+28) sum-root-to-leaf-numbers 
+https://leetcode.com/problems/sum-root-to-leaf-numbers/submissions/
+
+
+
+
+ int sumNumbers(TreeNode* root, int number = 0) {
+        if (root == nullptr) return 0;
+        
+        number = number * 10 + root->val;
+        
+        if (root->left == nullptr && root->right == nullptr)
+            return number;
+        
+        return sumNumbers(root->left, number) + 
+               sumNumbers(root->right, number); 
+    }
