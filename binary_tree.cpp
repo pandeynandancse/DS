@@ -303,6 +303,55 @@ public:
 
 
 
+
+class Solution {
+public:
+int height(TreeNode *node){
+       if (node == NULL)return 0;
+       return 1 + max(height(node->left), height(node->right));	
+} 
+   
+   int diameterOfBinaryTree(TreeNode* ptr) {
+
+   if(ptr == NULL) return 0;
+   int leftHeight = height(ptr->left);
+   int rightHeight = height(ptr->right);
+   int leftDiameter = diameterOfBinaryTree(ptr->left);
+   int rightDiameter = diameterOfBinaryTree(ptr->right);
+   
+   return max((leftHeight + rightHeight), max(leftDiameter, rightDiameter));        
+       
+   }
+};
+
+
+
+
+
+
+===================================================
+  
+  
+  
+  class Solution {
+public:
+    int check(TreeNode* root,int &ma)
+    {   if(root==NULL) return 0;
+        int l=check(root->left,ma);
+        int r=check(root->right,ma);
+        ma=max(ma,(l+r));
+        return max(l,r)+1;
+    }
+    int diameterOfBinaryTree(TreeNode* root) {
+        int ma=INT_MIN;
+        if(root==NULL)  return 0;
+        check(root,ma);
+        return ma;
+    }
+};
+
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 24) Path In Zigzag Labelled Binary Tree
