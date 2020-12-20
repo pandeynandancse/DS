@@ -184,3 +184,86 @@ int setbits(int n) {
 12.      num=5
         bitset<32> a(num);            //a = 10100000000000000000000000000000
          a.to_ulong();            // 5
+
+
+
+
+13. Single Number > Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+	Input: nums = [4,1,2,1,2]
+	Output: 4
+		
+		
+		int singleNumber(vector<int>& nums) {
+			int xora = 0;
+			for(int num : nums){
+			    xora = xora ^ num;
+			}
+			return xora;
+		    }
+
+
+
+Note : XOR with 0  > same number
+       XOR with same number > 0
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+14. Find all prime nos smaller than n > Sieve of Eratosthenes
+
+
+void SieveOfEratosthenes(int n) 
+{ 
+    // Create a boolean array "prime[0..n]" and initialize 
+    // all entries it as true. A value in prime[i] will 
+    // finally be false if i is Not a prime, else true. 
+    bool prime[n+1]; 
+    memset(prime, true, sizeof(prime)); 
+  
+    for (int p=2; p*p<=n; p++) 
+    { 
+        // If prime[p] is not changed, then it is a prime 
+        if (prime[p] == true) 
+        { 
+            // Update all multiples of p greater than or  
+            // equal to the square of it 
+            // numbers which are multiple of p and are 
+            // less than p^2 are already been marked.  
+            for (int i=p*p; i<=n; i += p) 
+                prime[i] = false; 
+        } 
+    } 
+  
+    // Print all prime numbers 
+    for (int p=2; p<=n; p++) 
+       if (prime[p]) 
+          cout << p << " "; 
+} 
+  
+
+
+
+
+
+
+
+15. PrimeChecker > check whether given number is prime
+
+bool is_prime(int a){
+    for (int i = 2; i * i <= a;i++){
+        if(a%i==0)
+            return false;
+    }
+    return true;
+}
+
+
+	
+	
