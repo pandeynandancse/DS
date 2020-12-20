@@ -257,6 +257,9 @@ void SieveOfEratosthenes(int n)
 15. PrimeChecker > check whether given number is prime
 
 bool is_prime(int a){
+	if(a<=1){
+		    return false;
+		}
     for (int i = 2; i * i <= a;i++){
         if(a%i==0)
             return false;
@@ -267,3 +270,12 @@ bool is_prime(int a){
 
 	
 	
+
+
+16. map<int ,int> count;
+     ++count[25];                        // {25 : 1}
+
+
+
+
+
