@@ -1,4 +1,5 @@
 https://cp-algorithms.com/data_structures/segment_tree.html
+https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
 
 
 
