@@ -178,6 +178,13 @@ int setbits(int n) {
 
 
 11. even number  > if( (num & 1) == 0))
+    single set bit     >>  (checked by " ! (num & (num - 1))"
+    set bit should be at an odd position (checked by "(num & 0x55555555)")
+
+P.S: 0x55555555 is a 32 bit integer with all the odd bits set to 1, whereas 0xAAAAAAAA is a 32 bit integer with all the even bits set to 1.
+			    
+		Power of two > positive number and single bit set
+		Power of four  > positive number , single bit set and set bit must be at odd position
    
    
    
