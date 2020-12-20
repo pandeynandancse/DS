@@ -427,3 +427,107 @@ https://leetcode.com/problems/sum-root-to-leaf-numbers/submissions/
         return sumNumbers(root->left, number) + 
                sumNumbers(root->right, number); 
     }
+    
+
+
+
+-------------------------
+  
+  29. Merge Tree
+ 
+ 
+ TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) {
+	/*base cases*/
+        if(t1==NULL)
+            return t2;
+        if(t2==NULL)
+            return t1;
+			
+			/*add up the node values of both the tree into t1 's node*/
+        t1->val=t1->val+t2->val;
+		
+		/*call the recursive function for the left subtrees of both the trees*/
+        t1->left=mergeTrees(t1->left,t2->left);
+		
+		/*call the recursive function for the right subtrees of  both the trees*/
+        t1->right=mergeTrees(t1->right,t2->right);
+		
+		/*finally return the merged tree*/
+        return t1;
+    }
+    
+
+
+
+
+
+
+----------------------
+  
+  30. Create right skewed tree from list of nodes > 
+  
+      TreeNode* new_head = new TreeNode();
+      TreeNode* curr = new_head    // curr = [null, 0, null]
+        nodes = [1,4,6,8,9];
+        for (auto a : nodes) {
+            curr->right = new TreeNode(a);
+            curr = curr->right;
+        }
+
+
+
+
+------------------------
+  31. Search in bst
+  
+  TreeNode* searchBST(TreeNode* root, int val) {
+        if(root==NULL || root->val == val){
+            return root;
+        }
+        else if(root->val > val){
+            return searchBST(root->left, val);            
+        }
+        else{
+            return searchBST(root->right, val);            
+        }
+    }
+    
+
+------------------------------------------------
+  
+  32. Invert/Mirror the Binary tree
+  TreeNode* invertTree(TreeNode* root) {
+        if(!root) return NULL;
+        TreeNode* temp = invertTree(root->right);
+        root->right= invertTree(root->left);
+        root->left = temp;
+        return root;
+    }
+    
+
+
+
+
+
+
+Second Solution in another form of above one:
+TreeNode* invertTree(TreeNode* root) {
+       if(root==NULL)return NULL;
+
+		TreeNode* temp = root->right; //save one side of the tree in a "temp" node;
+		root->right = root->left; 
+		root->left = temp;
+
+		invertTree(root->left); //call the left side of the tree    // also u can write this but not useful becoz return is NULL  > root->left = invertTree(root->left);
+		invertTree(root->right); //call the right side of the tree // also u can write this but not useful becoz return is NULL  > root->right = invertTree(root->right);
+
+		return root;
+}
+
+
+
+
+
+-------------------------------------------
+  
+  
