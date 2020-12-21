@@ -1,7 +1,7 @@
 https://cp-algorithms.com/data_structures/segment_tree.html
 https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
 
-
+https://visualgo.net/en/segmenttree
 
 
 
@@ -39,9 +39,102 @@ Unlike Heap, the last level may have gaps between nodes.
 Example 1: segment-tree-set-1-sum-of-given-range :
 Solution : For this problem, merging is sum of leaves under a node.
 
+  
+  
+class segmentTree {
+public:
+    int sum, start, end;
+    segmentTree *left, *right;
+    segmentTree (int start, int end) {
+        this->start = start;
+        this->end = end;
+        this->left = nullptr;
+        this->right = nullptr;
+        this->sum = 0;
+    }
+};
 
 
-
-
+class NumArray {
+public:
+    segmentTree* root = nullptr;
+    
+    segmentTree* buildTree(vector<int>& nums, int s, int e) {
+        if (s > e) {
+            return nullptr;
+        } else {
+            //for range s and e!
+            segmentTree* ret = new segmentTree(s, e);
+            if (s == e) {  // if only one element in array
+                ret->sum = nums[s];
+            } else {
+                int mid = s  + (e - s) / 2;             
+                ret->left = buildTree(nums, s, mid);
+                ret->right = buildTree(nums, mid + 1, e);
+                //this is the condition where we can change, if we want to evaluate gcd, then instead of sum, we can evaluate gcd of left and right!
+                ret->sum = ret->left->sum + ret->right->sum;
+            }         
+            return ret;
+        }
+    }
+    
+  
+  
+    NumArray(vector<int>& nums) {
+        root = buildTree(nums, 0, nums.size() - 1);
+    }
+  
+  
+  
+    
+    void update(int i, int val) {
+        update(root, i, val);
+    }
+    
+  
+  
+  
+    void update(segmentTree* root, int pos, int val) {
+        if (root->start == root->end) {
+           root->sum = val;
+        } else {
+            int mid = root->start + (root->end - root->start) / 2;
+            if (pos <= mid) {
+                 update(root->left, pos, val);
+            } else {
+                 update(root->right, pos, val);
+            }
+            //this is the condition where we can change, if we want to evaluate gcd, then instead of sum, we can evaluate gcd of left and right!
+            root->sum = root->left->sum + root->right->sum;
+        }
+    }
+    
+  
+  
+  
+  
+    int sumRange(int i, int j) {
+        return sumRange(root, i, j);
+    }
+  
+  
+  
+  
+  
+    int sumRange(segmentTree* root, int start, int end) {
+        if (root->end == end && root->start == start) {
+            return root->sum;
+        } else {
+            int mid = root->start + (root->end - root->start) / 2;
+            if (end <= mid) {
+                return sumRange(root->left, start, end);
+            } else if (start >= mid+1) {
+                return sumRange(root->right, start, end);
+            }  else {
+                return sumRange(root->right, mid+1, end) + sumRange(root->left, start, mid);
+            }
+        }
+    }
+};  
 
 
