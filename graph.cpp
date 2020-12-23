@@ -477,3 +477,18 @@ void Graph::primMST()
     for (int i = 1; i < V; ++i) 
         printf("%d - %d\n", parent[i], i); 
 } 
+
+
+
+
+
+
+8.  Flood-fill Algorithm
+Articulation Points and Bridges
+Biconnected Components
+Strongly Connected Components
+Topological Sort
+Hamiltonian Path
+Maximum flow
+Minimum Cost Maximum Flow
+Min-cut
