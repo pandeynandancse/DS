@@ -127,3 +127,15 @@ string first(""), second("");      // first="", second=""
 
 
     
+7) String Searching : KMP algorithm : Given  strings (pattern) and (text), find the number of occurrences of pattern in text.
+
+
+
+8) Z-algorithm : Z algorithm is a linear time string matching algorithm which runs in  complexity. 
+  It is used to find all occurrence of a pattern  in a string , which is common string searching problem.
+  
+  
+  
+  
+  9) Manchars algorithm : It is used to find the Longest Palindromic Sub-string in any string. This algorithm is required to solve sub-problems of some very hard problems. 
+    
