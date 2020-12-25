@@ -138,3 +138,32 @@ public:
 };  
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================
+  faadcoder : https://www.youtube.com/watch?v=Nnb3oggeVQc&ab_channel=faadcoder > segment tree  >> storing as array
+  
+  
+  
