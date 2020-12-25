@@ -19,7 +19,7 @@ struct trie{
 
 struct trie2{
 	bool isend;
-	unordered_map<char,trie2*> mp;
+	unordered_map<char,trie2*> mp;   //used hashing
 
 	trie2()
 	{
