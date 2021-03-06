@@ -305,3 +305,17 @@ bool is_prime(int a){
   
     return count; 
 } 
+
+			    
+			    
+			    
+			    
+			    
+			    
+			   
+			    
+			    
+			    
+18. How many Group of consecutive ones:
+			    This can be accomplished without much work by simply summing the number of times the list transitions from 0 to 1 (Counting rising signal edges):
+			    
