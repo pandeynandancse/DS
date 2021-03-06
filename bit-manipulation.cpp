@@ -1,7 +1,7 @@
 1. a>>1       i.e.      a/2
    a>>2       i.e.      a/4
    a<<1       i.e.      a*2
-1<<count   if count=-4 then this will give 16
+1<<count   if count==4 then this will give 16
    
    
   
