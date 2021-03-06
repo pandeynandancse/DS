@@ -324,3 +324,88 @@ bool is_prime(int a){
 18. How many Group of consecutive ones:
 			    This can be accomplished without much work by simply summing the number of times the list transitions from 0 to 1 (Counting rising signal edges):
 			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    
+			    ===================================================================
+			    
+			    
+			    
+			    
+			    #include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+//important function
+int setBitNumber(int n)
+{ //n = 13
+    int k = (int)(log2(n)) ;
+    
+    //cout<<k;
+    // k=3 >0 . 1 ,2 ,3
+    return k;
+}
+
+
+int main() {
+	// your code goes here
+	int t,c;
+
+	cin>>t;
+	while(t-->0){
+	    int mul =1;
+	    cin >> c;
+	    int val = setBitNumber(c);
+	    //cout<<val;
+	  
+	     bitset<32> v(c);
+	     bitset<32> a(0); 
+	     bitset<32> b(0);
+	    
+	     int st = 32-val;
+	     a[val] = 1;
+	     b[val] = 0;
+	    for(int i=val-1;i>=0;i--){
+	            
+	            if(v[i] == 1){
+	                a[i] = 0;
+	                b[i] = 1;
+	             
+	            }
+	            else{
+	                 a[i] = 1;
+	                b[i] = 1;
+	            }
+	        
+	    }
+	 
+	    //cout<<a.to_string()<<"  " <<endl;
+	     // cout<<b.to_string()<<"  " <<endl;
+	     long long int mybit_int;
+        mybit_int = (long long int)(a.to_ulong());
+         long long int mybit_int2;
+        mybit_int2 = (long long int)(b.to_ulong());
+        cout<< mybit_int * mybit_int2 << endl;
+
+	}
+	return 0;
+}
+
+			    
+			    =======================================================================================================
