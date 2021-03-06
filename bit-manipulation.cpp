@@ -1,3 +1,7 @@
+https://www.geeksforgeeks.org/smallest-power-of-2-greater-than-or-equal-to-n/
+https://www.geeksforgeeks.org/find-significant-set-bit-number/
+
+
 1. a>>1       i.e.      a/2
    a>>2       i.e.      a/4
    a<<1       i.e.      a*2
